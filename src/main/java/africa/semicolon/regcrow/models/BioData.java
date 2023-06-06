@@ -16,7 +16,7 @@ public class BioData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true)
+   // @Column(unique = true)
     private String email;
     private String password;
 

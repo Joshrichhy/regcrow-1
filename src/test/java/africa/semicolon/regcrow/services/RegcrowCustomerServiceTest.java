@@ -90,8 +90,8 @@ public class RegcrowCustomerServiceTest {
         var response =
                 customerService.updateCustomerDetails(customerRegistrationResponse.getId(),
                         updateForm,
-                        new MockMultipartFile("2 goats",
-                                new FileInputStream("C:\\Users\\semicolon\\Documents\\java_workspace\\regcrow\\src\\test\\resources\\assets\\goat.jpg")
+                        new MockMultipartFile("nature",
+                                new FileInputStream("C:\\Users\\USER\\IdeaProjects\\regcrow-1\\src\\test\\assets\\images\\WIN_20221004_08_49_22_Pro.jpg")
                         ));
 
         assertThat(response).isNotNull();

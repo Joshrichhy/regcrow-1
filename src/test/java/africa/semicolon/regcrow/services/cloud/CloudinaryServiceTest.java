@@ -23,8 +23,8 @@ public class CloudinaryServiceTest {
     @Test
     public void uploadTest(){
         try {
-            MultipartFile imageFile = new MockMultipartFile("2 goats",
-                    new FileInputStream("C:\\Users\\semicolon\\Documents\\java_workspace\\regcrow\\src\\test\\resources\\assets\\goat.jpg"));
+            MultipartFile imageFile = new MockMultipartFile("me",
+                    new FileInputStream("C:\\Users\\USER\\IdeaProjects\\regcrow-1\\src\\test\\assets\\images\\WIN_20221004_08_49_22_Pro.jpg"));
             String cloudinaryUrl = cloudService.upload(imageFile.getBytes());
 
             assertThat(cloudinaryUrl).isNotNull();
