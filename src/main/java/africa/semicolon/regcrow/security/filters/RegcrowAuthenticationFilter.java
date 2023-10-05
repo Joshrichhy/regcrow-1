@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 
 import static africa.semicolon.regcrow.utils.AppUtils.*;
 import static africa.semicolon.regcrow.utils.ExceptionUtils.AUTHENTICATION_FAILED_FOR_USER_WITH_EMAIL;
+
 import static java.time.Instant.now;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -46,6 +47,7 @@ public class RegcrowAuthenticationFilter extends UsernamePasswordAuthenticationF
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         String email=EMPTY_SPACE_VALUE;
+        System.out.println("authfilter");
         try {
 //            log.info("req body--->{}", request.getInputStream().readLine());
             //1. Extract authentication credentials from the request

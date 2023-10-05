@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: mysql_db
+    image: mysql:latest
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: oluwatosin
+      MYSQL_DATABASE: regcrow
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"  # Change the host port to avoid conflicts
+    networks:
+      - regcrow_web_net
+    restart: on-failure
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: joshrichhy/regcrow
+    ports:
+      - "8082:8082"
+    env_file:
+      - .env
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/regcrow
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: oluwatosin
+      PORT: "8082"
+    depends_on:
+      - mysql
+    networks:
+      - regcrow_web_net
+    volumes:
+      - .:/usr/src/app
+    restart: on-failure:3
+
+networks:
+  regcrow_web_net:
+    driver: bridge
+
+volumes:
+  mysql_data:

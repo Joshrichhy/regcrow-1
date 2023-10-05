@@ -17,6 +17,7 @@ public class RegcrowBioDataService implements UserDetailsService {
     private final BioDataRepository bioDataRepository;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        System.out.println("in loadbyusername");
         BioData bioData = bioDataRepository.findByEmail(email).orElseThrow(()->new UsernameNotFoundException(
                 String.format(USER_WITH_EMAIL_NOT_FOUND, email)
         ));
