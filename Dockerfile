@@ -5,7 +5,8 @@ COPY . .
 RUN mvn package -DskipTests
 
 # Second stage: Create the final image
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM eclipse-temurin:17
+
 WORKDIR /app
 COPY --from=build /usr/src/app/target/*.jar app.jar
 EXPOSE 8080

@@ -22,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: joshrichhy/regcrow
+    image: joshrichhy/regcrow:latest
     ports:
       - "8082:8082"
     env_file:
